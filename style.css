@@ -3,3 +3,30 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
+.navbar{
+    background-color: #0f1111;
+    height: 70px;
+    color: #fff;
+}
+ .nav-logo{
+  
+    height: 50px;
+    width: 100px;
+ }
+ .logo{
+   
+    background-size: cover;
+
+    height: 50px;
+    width: 100%;
+ }
+img{
+height: 70px;
+width: 100%;
+ }
+ .border{
+border: 2px solid transparent;
+ }
+ .border:hover{
+    border: 2px white;
+ }
