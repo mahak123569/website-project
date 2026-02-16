@@ -5,8 +5,9 @@ body{
 }
 .navbar{
     background-color: #0f1111;
-    height: 70px;
+    height: 60px;
     color: #fff;
+    display: flex;
 }
  .nav-logo{
   
@@ -14,19 +15,27 @@ body{
     width: 100px;
  }
  .logo{
-   
+   background-image: url("amazon_logo.png");
     background-size: cover;
 
     height: 50px;
     width: 100%;
  }
-img{
-height: 70px;
-width: 100%;
- }
+
  .border{
 border: 2px solid transparent;
  }
  .border:hover{
-    border: 2px white;
+    border: 1.5px  solid white;
  }
+ .add-first{
+   color: #cccccccc;
+   font-size: 0.85rem;
+   margin-left: 15px;
+ }
+ .add-second{
+   font-size: 1rem;
+   margin-left: 2px;
+   
+ }
+
