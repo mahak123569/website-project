@@ -3,7 +3,7 @@
 This project is a front-end clone of the Amazon homepage created using **HTML and CSS**.  
 It replicates the basic layout, navigation bar, product sections, and styling to practice web development skills.
 
----
+
 
 ## 🚀 Features
 
@@ -12,7 +12,7 @@ It replicates the basic layout, navigation bar, product sections, and styling to
 - Styled homepage layout similar to Amazon  
 - Clean UI using HTML and CSS only  
 
----
+
 
 ## 🛠️ Technologies Used
 
