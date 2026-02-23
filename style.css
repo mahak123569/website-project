@@ -42,3 +42,115 @@ border: 2px solid transparent;
    
  }
 
+/* --- New layout and responsive styles --- */
+:root{
+  --bg:#0f1111;
+  --accent:#febd69;
+  --text:#111;
+  --muted:#6b6b6b;
+}
+
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.site-header .navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  height: 72px;
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.nav-address{
+  color: #fff;
+  font-size: 0.85rem;
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
+
+.nav-search{
+  flex: 1 1 400px;
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.nav-search select{
+  padding:8px;
+  border-radius:4px 0 0 4px;
+  border: none;
+}
+
+.nav-search input[type="search"]{
+  flex:1;
+  padding:10px 12px;
+  border: none;
+  border-radius: 0;
+}
+
+.search-btn{
+  background: var(--accent);
+  border: none;
+  padding: 10px 14px;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+.nav-right{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.nav-link{ color:#fff; text-decoration:none; font-size:0.9rem }
+.nav-cart{ color:#fff; text-decoration:none; font-weight:700 }
+
+.hero{
+  background: linear-gradient(90deg,#232f3e, #37475a);
+  color: #fff;
+  padding: 36px 16px;
+  border-radius: 6px;
+  margin: 18px 0;
+  text-align:center;
+}
+
+.products{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.product-card{
+  background:#fff;
+  border-radius:6px;
+  padding:12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-align:center;
+}
+.product-card img{ width:100%; height:160px; object-fit:cover; border-radius:4px }
+.product-card h3{ font-size:1rem; color:var(--text); margin:8px 0 }
+.price{ color:#b12704; font-weight:700 }
+.rating{ color:#f0c14b }
+
+.site-footer{ text-align:center; padding:18px 0; color:var(--muted); border-top:1px solid #eee }
+
+/* Responsive tweaks */
+@media (max-width: 700px){
+  .nav-search{ order:3; width:100%; margin-top:8px }
+  .site-header .navbar{ flex-wrap:wrap; align-items:flex-start }
+}
+
+/* keep existing class compatibility */
+.logo{ background-position:center; background-repeat:no-repeat }
+
