@@ -7,33 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="container navbar">
-            <div class="nav-left">
-                <a href="#" class="nav-logo" aria-label="Home">
-                    <div class="logo" role="img" aria-label="Amazon logo"></div>
-                </a>
-                <div class="nav-address border">
-                    <div class="add-first">Deliver to</div>
-                    <div class="add-second">India</div>
+        <header class="site-header" id="site-header">
+            <div class="container navbar">
+                <div class="nav-left">
+                    <a href="#" class="nav-logo" aria-label="Home">
+                        <div class="logo" role="img" aria-label="Amazon logo"></div>
+                    </a>
+                    <div class="nav-address border">
+                        <div class="add-first">Deliver to</div>
+                        <div class="add-second">India</div>
+                    </div>
+                </div>
+
+                <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+
+                <div class="nav-collapse" id="primary-nav">
+                    <div class="nav-search">
+                        <select aria-label="Search category">
+                            <option>All</option>
+                        </select>
+                        <input type="search" placeholder="Search Amazon" aria-label="Search site">
+                        <button class="search-btn" aria-label="Search">Search</button>
+                    </div>
+
+                    <div class="nav-right">
+                        <a href="#" class="nav-link">Hello, Sign in</a>
+                        <a href="#" class="nav-link">Returns</a>
+                        <a href="#" class="nav-cart">Cart (0)</a>
+                    </div>
                 </div>
             </div>
-
-            <div class="nav-search">
-                <select aria-label="Search category">
-                    <option>All</option>
-                </select>
-                <input type="search" placeholder="Search Amazon" aria-label="Search site">
-                <button class="search-btn" aria-label="Search">Search</button>
-            </div>
-
-            <div class="nav-right">
-                <a href="#" class="nav-link">Hello, Sign in</a>
-                <a href="#" class="nav-link">Returns</a>
-                <a href="#" class="nav-cart">Cart (0)</a>
-            </div>
-        </div>
-    </header>
+        </header>
 
     <main class="container">
         <section class="hero">
@@ -70,5 +76,20 @@
             <p>&copy; Demo — Amazon clone for learning purposes.</p>
         </div>
     </footer>
+        <script>
+            // Simple mobile nav toggle
+            (function(){
+                const btn = document.querySelector('.nav-toggle');
+                const header = document.getElementById('site-header');
+                const collapse = document.getElementById('primary-nav');
+                btn.addEventListener('click', function(){
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    header.classList.toggle('open');
+                    // keep focus behavior for keyboard users
+                    if(!expanded) collapse.querySelector('input, a, button, select')?.focus();
+                });
+            })();
+        </script>
 </body>
 </html>
