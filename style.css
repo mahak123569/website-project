@@ -120,6 +120,16 @@ border: 2px solid transparent;
 .nav-link{ color:#fff; text-decoration:none; font-size:0.9rem }
 .nav-cart{ color:#fff; text-decoration:none; font-weight:700 }
 
+.nav-cart{ display:inline-flex; align-items:center; gap:8px; position:relative; padding:6px 8px; border-radius:4px }
+.nav-cart .cart-icon{ display:inline-flex; width:20px; height:20px; color:#fff }
+.nav-cart .cart-icon svg{ width:20px; height:20px }
+.nav-cart .cart-text{ display:none }
+.nav-cart .cart-count{ background:#f08804; color:#111; font-weight:700; padding:2px 6px; border-radius:999px; font-size:0.8rem }
+
+@media(min-width:700px){
+  .nav-cart .cart-text{ display:inline-block }
+}
+
 .hero{
   background: linear-gradient(90deg,#232f3e, #37475a);
   color: #fff;
