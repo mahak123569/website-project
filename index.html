@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazon Clone — Home</title>
-    <link rel="stylesheet" href="style.css">
+        <!-- Typography -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
         <header class="site-header" id="site-header">
@@ -28,7 +30,7 @@
                 </div>
 
                 <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="hamburger"></span>
+                    <span class="hamburger" aria-hidden="true"></span>
                 </button>
 
                 <div class="nav-collapse" id="primary-nav">
@@ -41,22 +43,37 @@
                     </div>
 
                     <div class="nav-right">
-                        <a href="#" class="nav-link">Hello, Sign in</a>
-                        <a href="#" class="nav-link">Returns</a>
-                        <a href="#" class="nav-cart" aria-label="Cart, 0 items">
+                        <a href="#" class="nav-account" aria-label="Sign in">
+                            <div class="nav-line1">Hello, Sign in</div>
+                            <div class="nav-line2">Account &amp; Lists</div>
+                        </a>
+
+                        <a href="#" class="nav-returns" aria-label="Returns and Orders">
+                            <div class="nav-line1">Returns</div>
+                            <div class="nav-line2">&amp; Orders</div>
+                        </a>
+
+                        <a href="#" class="nav-cart" id="cart-link" aria-label="Cart">
                             <span class="cart-icon" aria-hidden="true">
-                                <!-- shopping cart / basket inline SVG -->
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" focusable="false" aria-hidden="true">
-                                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 14l.84-2h7.45c.75 0 1.41-.41 1.75-1.03l2.58-5.02A1 1 0 0018.86 4H5.21L4.27 2H1v2h2l3.6 7.59-1.35 2.45C5.09 15.37 5 15.68 5 16c0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25z"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 14l.84-2h7.5c.75 0 1.41-.41 1.75-1.03l2.58-4.97L20.91 5H6.21L5.27 2H1v2h2l3.6 7.59-1.35 2.45C5.13 15.37 5 15.68 5 16c0 1.11.89 2 2 2h12v-2H7.42c-.03 0-.07-.01-.11-.01z"/></svg>
                             </span>
-                            <span class="cart-text">Cart</span>
-                            <span class="cart-count" aria-hidden="true">0</span>
+                            <span class="cart-count" id="cart-count">0</span>
                         </a>
                     </div>
                 </div>
             </div>
         </header>
+
+        <nav class="secondary-nav" aria-label="Categories">
+            <div class="container">
+                <a href="#">All</a>
+                <a href="#">Today's Deals</a>
+                <a href="#">Customer Service</a>
+                <a href="#">Registry</a>
+                <a href="#">Gift Cards</a>
+                <a href="#">Sell</a>
+            </div>
+        </nav>
 
     <main class="container">
         <section class="hero">
@@ -70,6 +87,7 @@
                 <h3>Product Title One</h3>
                 <p class="price">₹999.00</p>
                 <p class="rating">★★★★☆</p>
+                <button class="btn add-cart" data-id="1">Add to cart</button>
             </article>
 
             <article class="product-card">
@@ -77,6 +95,7 @@
                 <h3>Product Title Two</h3>
                 <p class="price">₹1,499.00</p>
                 <p class="rating">★★★☆☆</p>
+                <button class="btn add-cart" data-id="2">Add to cart</button>
             </article>
 
             <article class="product-card">
@@ -84,6 +103,7 @@
                 <h3>Product Title Three</h3>
                 <p class="price">₹2,499.00</p>
                 <p class="rating">★★★★★</p>
+                <button class="btn add-cart" data-id="3">Add to cart</button>
             </article>
         </section>
     </main>
@@ -94,18 +114,37 @@
         </div>
     </footer>
         <script>
-            // Simple mobile nav toggle
+            // Mobile nav toggle + simple cart interaction
             (function(){
                 const btn = document.querySelector('.nav-toggle');
                 const header = document.getElementById('site-header');
                 const collapse = document.getElementById('primary-nav');
-                btn.addEventListener('click', function(){
-                    const expanded = btn.getAttribute('aria-expanded') === 'true';
-                    btn.setAttribute('aria-expanded', String(!expanded));
-                    header.classList.toggle('open');
-                    // keep focus behavior for keyboard users
-                    if(!expanded) collapse.querySelector('input, a, button, select')?.focus();
-                });
+                if(btn && header && collapse){
+                    btn.addEventListener('click', function(){
+                        const expanded = btn.getAttribute('aria-expanded') === 'true';
+                        btn.setAttribute('aria-expanded', String(!expanded));
+                        header.classList.toggle('open');
+                        // animate hamburger
+                        btn.classList.toggle('is-open');
+                        // keep focus behavior for keyboard users
+                        if(!expanded) collapse.querySelector('input, a, button, select')?.focus();
+                    });
+                }
+
+                // Cart logic: increment count when Add to cart is clicked
+                const cartCountEl = document.getElementById('cart-count');
+                let cartCount = 0;
+                if(cartCountEl){
+                    document.querySelectorAll('.add-cart').forEach(btn => {
+                        btn.addEventListener('click', function(e){
+                            cartCount += 1;
+                            cartCountEl.textContent = cartCount;
+                            // visual feedback
+                            btn.classList.add('added');
+                            setTimeout(()=> btn.classList.remove('added'), 600);
+                        });
+                    });
+                }
             })();
         </script>
 </body>
