@@ -10,7 +10,7 @@ It replicates the basic layout, navigation bar, product sections, and styling to
 - Responsive Amazon-style navigation bar
 - Product category sections  
 - Styled homepage layout similar to Amazon. 
-- Clean UI using HTML and CSS only 
+- Clean UI using HTML and CSS only
 
 
 
