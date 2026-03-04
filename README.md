@@ -19,7 +19,7 @@ It replicates the basic layout, navigation bar, product sections, and styling to
 - HTML5  
 - CSS3  
 
----
+
 
 ## 📂 Project Structure
 
@@ -27,7 +27,6 @@ It replicates the basic layout, navigation bar, product sections, and styling to
 - style.css → Styling file  
 - Images → Logo and product images  
 
----
 
 ## 💡 Purpose of Project
 
